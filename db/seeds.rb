@@ -7,7 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 category = ['chinese', 'italian', 'japanese', 'french', 'belgian']
+
+Restaurant.destroy_all
+
 5.times do
-  Restaurant.create!(name: Faker::Restaurant.name, address: Faker::Address.full_address,
-                     category: category.sample)
+  Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address,
+                     category: category.sample, phone_number: Faker::PhoneNumber.phone_number)
+end
+
+5.times do
+  Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address,
+                     category: category.sample, phone_number: Faker::PhoneNumber.phone_number)
 end
